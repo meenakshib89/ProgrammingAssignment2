@@ -23,4 +23,15 @@ makeCacheMatrix <- function(x = matrix())
 ## The following function returns the inverse of the matrix after checking
 # if the inverse has already been computed
 
+function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
+        inv <- x$getinv()
+        if(!is.null(inv)){
+                return(inv)
+        }
+        data <- x$get()
+        inv <-solve(data)
+        x$setinv(inv)
+        inv
+}
 
